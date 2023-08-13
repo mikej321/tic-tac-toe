@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "header"
+                         "gameBoard";
+
+}
+
+.navBar {
+    grid-area: header;
+    background-color: black;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navBar > h1 {
+    color: white;
+    font-size: 4rem;
+}
+
+.playerInput {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.playerInput > label {
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+}
+
+.playerInput > input[type="text"] {
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.playerInput > input[type="text"]:focus {
+    outline: 2px solid green;
+}
+
+#playButton {
+    height: 3rem;
+    min-width: 10rem;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+
+main {
+    display: grid;
+    grid-template-areas: "heading"
+    "board";
+    gap: 5rem;
+    align-items: center;
+}
+
+.title {
+    grid-area: heading;
+    justify-self: center;
+    font-size: 4rem;
+
+}
+
+
+#gameBoard {
+    grid-area: gameBoard;
+    grid-area: board;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    justify-content: center;
+}
+
+.square {
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.square:hover {
+    background-color: green;
+}
+
+.square[occupied]:hover {
+    background-color: red;
+}
+
+#square0,
+#square1,
+#square2 {
+    border-top: none;
+}
+
+#square0,
+#square3,
+#square6 {
+    border-left: none;
+}
+
+#square2,
+#square5,
+#square8 {
+    border-right: none;
+}
+
+#square6,
+#square7,
+#square8 {
+    border-bottom: none;
+}
