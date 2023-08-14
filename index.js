@@ -3,6 +3,7 @@ const nameInput = document.querySelector('#playerName');
 const headingTitle = document.querySelector('.title');
 const gameBoardEl = document.querySelector('#gameBoard');
 const playButton = document.querySelector('#playButton');
+const mainStage = document.querySelector('main');
 
 const myGameboard = (() => {
     // Creates the gameBoard array
@@ -10,13 +11,13 @@ const myGameboard = (() => {
     
     // Renders the board based on the beginning state of the gameBoard array
     let renderBoard = function() {
+        gameBoardEl.innerHTML = "";
         let gameboardLength = gameBoard.length;
         for (let i = 0; i < gameboardLength; i++) {
             const square = document.createElement('div');
             square.id = 'square' +  `${i}`;
             square.dataset.square = `${i}`;
             square.classList.add('square');
-            square.textContent = gameBoard[i];
             gameBoardEl.insertAdjacentElement('beforeend', square);
         }
         
@@ -26,7 +27,7 @@ const myGameboard = (() => {
     let reRender = function(arr) {
         const squares = document.querySelectorAll('.square');
         for (let i = 0; i < squares.length; i++) {
-            squares[i].textContent = gameBoard[i];
+            squares[i].textContent = arr[i];
         }
     }
 
@@ -43,7 +44,8 @@ const myGameboard = (() => {
             // if the human player passes the checkLine function, they are declared the winner
             if (checkLine()) {
                 gameBoardEl.classList.add('stop');
-               return declareWinner();
+                return declareWinner();
+                
             }
 
             // proceeds to the computer if a winner isn't declared before and checks to see if they win afterwards
@@ -52,6 +54,7 @@ const myGameboard = (() => {
 
             if (checkLine()) {
                return declareLoser();
+               
             }
         }
 
@@ -177,10 +180,18 @@ const myGameboard = (() => {
         gameBoardEl.insertAdjacentElement('afterend', draw);
     }
 
+    let resetButton = function() {
+        const reset = document.createElement('button');
+        reset.classList.add('reset');
+        reset.textContent = 'Reset';
+        mainStage.insertAdjacentElement('beforeend', reset);
+    }
     
     
 
     return {
+        gameBoard,
+        reRender,
         renderBoard,
         pickASquare,
     }

@@ -157,3 +157,59 @@ main {
 .stop {
     pointer-events: none;
 }
+
+.reset {
+    height: 3rem;
+    min-width: 10rem;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+@media (max-width: 480px) {
+
+    .navBar > h1 {
+        display: none;
+    }
+
+    .playerInput > label {
+        font-size: 2rem;
+    }
+
+    .playerInput > input[type="text"] {
+        max-width: 13rem;
+        font-size: 1.6rem;
+    }
+
+    #playButton {
+        min-width: 6rem;
+    }
+
+    .title {
+        font-size: 4rem;
+        text-align: center;
+        padding-inline: 2rem;
+    }
+
+    #gameBoard {
+        grid-template-columns: repeat(3, 75px);
+        grid-template-rows: repeat(3, 75px);
+    }
+
+    .square {
+        font-size: 4rem;
+    }
+
+    .winner,
+    .loser,
+    .draw {
+        font-size: 4rem;
+    }
+
+    .reset {
+        max-width: 6rem;
+        height: 4rem;
+        justify-self: center;
+    }
+    
+}
