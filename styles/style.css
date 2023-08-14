@@ -70,7 +70,8 @@ body {
 main {
     display: grid;
     grid-template-areas: "heading"
-    "board";
+                         "board"
+                         "outcome";
     gap: 5rem;
     align-items: center;
 }
@@ -132,4 +133,27 @@ main {
 #square7,
 #square8 {
     border-bottom: none;
+}
+
+.winner {
+    color: green;
+}
+
+.loser {
+    color: red;
+}
+
+.draw {
+    color: gray;
+}
+
+.winner,
+.loser,
+.draw {
+    font-size: 7rem;
+    justify-self: center;
+}
+
+.stop {
+    pointer-events: none;
 }
